@@ -1,0 +1,10 @@
+Create Five activities:
+1) Number Game (two sub-activities in the category)
+   - Level Selector
+   - Activity for playing Game  <----------------------------------------------------------------------------------|
+2) Letter Game (two sub-activities in the category)                                                                |
+   - Level Selector                                                                                                |
+   - Activity for playing Game  <----------------------------------------------------------------------------------|
+3) Word Shuffler (to shuffle meaningful words from the dictionary)                                                 |              
+4) Dictionary (to load all the words from the dictionary when app launches)                                        |
+5) Myscript display activity and output the result (this will be included in almost all game playing activities) <-|
