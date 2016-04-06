@@ -8,6 +8,13 @@
     <dimen name="button_padding_top">15dp</dimen>
     <dimen name="button_padding_bottom">15dp</dimen>
     <dimen name="button_margin_top">15dp</dimen>
-    <dimen name="button_margin_bottom">50dp</dimen>
+    <dimen name="button_margin_bottom">35dp</dimen>
+    <dimen name="button_margin_left">15dp</dimen>
+    <dimen name="button_margin_right">15dp</dimen>
+    <dimen name="level_width">100dp</dimen>
+    <dimen name="level_height">100dp</dimen>
+    <dimen name="level_margin">10dp</dimen>
+    <dimen name="half_screen">246dp</dimen>
+    <dimen name="letters_game_text_size">30dp</dimen>
 
 </resources>

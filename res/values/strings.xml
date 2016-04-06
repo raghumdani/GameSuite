@@ -7,5 +7,6 @@
     <string name="main_image">The Letters Logo</string>
     <string name="play_games"> PLAY </string>
     <string name="exit_game"> EXIT </string>
-
+	<string name="junk">Hello My Friend !</string>
+	<string name="levels">All the levels</string>
 </resources>

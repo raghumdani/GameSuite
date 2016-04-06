@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.se.gamesuite.LevelSelector" >
+
+    <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:id="@+id/numbers_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:contentDescription="@string/levels"
+                        android:id="@+id/level_numbers_1"
+                        android:layout_width="@dimen/level_width"
+                        android:layout_height="@dimen/level_height"
+                        android:background="@drawable/level_1_icon"
+                        android:layout_margin="@dimen/level_margin" />
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/letters_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:contentDescription="@string/levels"
+                        android:id="@+id/level_letters_1"
+                        android:layout_width="@dimen/level_width"
+                        android:layout_height="@dimen/level_height"
+                        android:background="@drawable/level_1_ex"
+                        android:layout_margin="@dimen/level_margin" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

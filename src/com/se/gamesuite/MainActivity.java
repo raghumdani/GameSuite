@@ -3,6 +3,7 @@ package com.se.gamesuite;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,17 +17,26 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		//OnclickListener for playButton
+		/* 
+		 * Name : OnClickListener for Play button
+		 * Once the button is clicked, we move to LevelSelector Activity
+		 * Author : IT 2017 
+		 */
+		
 		final Button playButton = (Button) findViewById(R.id.play_button);
 		playButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Intent levelSelector = new Intent(v.getContext(), LevelSelector.class);
+				startActivity(levelSelector);
 			}
 		});
 		
-		//OnlcickListener for exit button
+		/* 
+		 * Name: OnClickListener for Exit button
+		 * Author : IT 2013
+		 */
 		final Button exitButton = (Button) findViewById(R.id.exit_button);
 		exitButton.setOnClickListener(new View.OnClickListener() {
 			

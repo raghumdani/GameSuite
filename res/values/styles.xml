@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--  Use this style for all buttons  -->
   <style name="button_style" >
-     
-    <item name="android:layout_width" >fill_parent</item>
-    <item name="android:layout_height" >wrap_content</item>
+    <item name="android:layout_marginTop">@dimen/button_margin_top</item>
+    <item name="android:layout_marginBottom">@dimen/button_margin_bottom</item>
+    <item name="android:paddingTop">@dimen/button_padding_top</item>
+    <item name="android:paddingBottom">@dimen/button_padding_bottom</item>
     <item name="android:textColor" >#ffffff</item>
     <item name="android:gravity" >center</item>
-    <item name="android:layout_margin" >3dp</item>
     <item name="android:textSize" >30sp</item>
     <item name="android:textStyle" >bold</item>
     <item name="android:shadowColor" >#000000</item>
     <item name="android:shadowDx" >1</item>
     <item name="android:shadowDy" >1</item>
     <item name="android:shadowRadius" >2</item>
+    <item name="android:layout_marginLeft">@dimen/button_margin_left</item>
+    <item name="android:layout_marginRight">@dimen/button_margin_right</item>
     
   </style>
+  
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
