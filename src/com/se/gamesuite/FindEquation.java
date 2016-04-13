@@ -69,9 +69,50 @@ public class FindEquation {
 		return ans;
 	}
 	
+	// Check if the answer entered is correct or not
+	// The heart of equation checking
+	public boolean validateAnswer(String eq) {
+		String neq = "";
+		for(int i = 0; i < eq.length(); ++i) {
+			if(eq.charAt(i) < '0' || eq.charAt(i) > '9') {
+				if(eq.charAt(i) != '+' && eq.charAt(i) != '-' && eq.charAt(i) != '*' && eq.charAt(i) != '/') {
+					continue;
+				}
+				neq += eq.charAt(i);
+			} else {
+				neq += eq.charAt(i);
+			}
+		}
+		int res = 0, args = 0;
+		char curOP = '[';
+		String num = "";
+		for(int i = 0; i < neq.length(); ++i) {
+			if(neq.charAt(i) <= '9' && neq.charAt(i) >= '0') {
+				num += neq.charAt(i);
+			} else {
+				if(args == 0) {
+					res = Integer.parseInt(num);
+					num = "";
+				} else {
+					res = evaluateAnswer(res, curOP, Integer.parseInt(num));
+					num = "";
+				}
+				
+				args++;
+				curOP = neq.charAt(i);
+			}
+		}
+		if(num.length() == 0) {
+			res = evaluateAnswer(res, curOP, Integer.parseInt(num));
+		}
+		
+		return res == this.answer;
+	}
+	
 	// Get the random number between lo and hi
 	public int getRandomNumber(int lo, int hi) {
 		Random rand = new Random();
+		hi = hi - lo;
 		return rand.nextInt(hi) + lo;
 	}
 	

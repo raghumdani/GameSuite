@@ -9,4 +9,10 @@
     <string name="exit_game"> EXIT </string>
 	<string name="junk">Hello My Friend !</string>
 	<string name="levels">All the levels</string>
+	<string name="rules">Can you write a meaningful permutation of a given word?</string>
+	<!-- Added for the application -->
+	<string name="sltw_sample_defaultText"></string>
+	<string name="submit">Submit</string>
+	<string name="clear_button">Clear</string>
+	<string name="rules_of_numbers_game">Use +, -, * and / to get the answer.</string>
 </resources>

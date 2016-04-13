@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
 
+import android.util.Log;
+
 public class DictBySE {
 	private int numberOfWords;
 	private TreeSet<String> tm;
@@ -93,12 +95,14 @@ public class DictBySE {
 		
 		for(int i = 0; i < CHAR_SIZE; ++i) {
 			if(hashOfSelectedWord[i] != hashOfInputWord[i]) {
+				Log.d("DictBySE", "Failed from hash not equal.");
 				return false;
 			}
 		}
 		
 		//Check if this word is meaningful
-		if(tm.contains(inputByUser)) {
+		if(tm.contains(new String(in))) {
+			Log.d("DictBySE", "Passed the test.. Yay!");
 			return true;
 		}
 		return false;
@@ -132,5 +136,9 @@ public class DictBySE {
 		}
 		
 		return new String(s);
+	}
+	
+	public String getAnswer() {
+		return wordSelected;
 	}
 }

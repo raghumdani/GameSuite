@@ -6,6 +6,71 @@
     android:orientation="vertical"
     tools:context="com.se.gamesuite.NumbersGame" >
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/half_screen"
+        android:orientation="vertical" >
 
+        <TextView
+            android:id="@+id/display_numbers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/hello_world"
+            android:textColor="#003300"
+            android:textSize="@dimen/letters_game_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/rules_of_numbers_game"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="@string/rules"
+            android:textColor="#25505E" />
+
+        <!-- target field -->
+
+        <com.se.gamesuite.view.CustomEditText
+            android:id="@+id/input_by_user_numbers"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:lines="1"
+            android:text="@string/sltw_sample_defaultText"
+            android:textIsSelectable="true" />
+
+        <com.myscript.atk.maw.styleable.MathWidgetStyleable
+            android:id="@+id/myscript_maw_numbers"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/half_screen" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/clear_numbers"
+                android:layout_width="@dimen/half_width"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/clear_button" />
+
+            <Button
+                android:id="@+id/submit_button_numbers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_button"
+                android:gravity="center"
+                android:text="@string/submit" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
