@@ -38,20 +38,34 @@ MathWidgetApi.OnWritingListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_numbers_game);
 		
-		fe = new FindEquation();
+		try {
+			fe = new FindEquation();
+		} catch(Exception e) {
+			Log.d(TAG, "");
+			e.printStackTrace();
+		}
 		//Create FindEquation to find the random equation 
 		// This also finds the answer and user has to enter + , -, / , * signs
 		// Done TODO : Improve it to blank numbers also
 		TextView displayNumbers = (TextView) findViewById(R.id.display_numbers);
+		submit = (Button) findViewById(R.id.submit_button_numbers);
+		clearButton = (Button) findViewById(R.id.clear_numbers);
+		
+		mWidget = (MathWidgetApi) findViewById(R.id.myscript_maw_numbers);
 		ArrayList<Integer> nms = fe.getArguments();
 		String toWrite = "Numbers : ";
+		int cnt = 0;
 		for(Integer x : nms) {
-			toWrite += x + " ";
+			if(cnt != 0) {
+				toWrite += ", ";
+			}
+			toWrite += x;
+			cnt++;
 		}
-		toWrite += "\nAnswer: " + fe.getAnswer();
+		toWrite += ".\n\nAnswer: " + fe.getAnswer();
 		displayNumbers.setText(toWrite);
 
-		mEditText = (CustomEditText) findViewById(R.id.input_by_user);
+		mEditText = (CustomEditText) findViewById(R.id.input_by_user_numbers);
 		mEditText.setOnKeyListener(new View.OnKeyListener() {
 
 			@Override
@@ -64,10 +78,6 @@ MathWidgetApi.OnWritingListener {
 			}
 		});
 
-		submit = (Button) findViewById(R.id.submit_button);
-		clearButton = (Button) findViewById(R.id.clear);
-		
-		mWidget = (MathWidgetApi) findViewById(R.id.myscript_maw);
 		mWidget.setOnWritingListener(this);
 		
 		if(clearButton != null) {
@@ -89,7 +99,7 @@ MathWidgetApi.OnWritingListener {
 				    displayAlertDialogBoxCustom("Well Done! What do you want to do next?", v);
 				} else {
 					displayAlertDialogBoxCustom("Sorry! " + mEditText.getText() + " doesn't evaluate to " + fe.getAnswer()
-							+ "The correct answer is " + fe.getEquation(), v);
+							+ ". The correct answer is " + fe.getEquation(), v);
 				}
 			}
 

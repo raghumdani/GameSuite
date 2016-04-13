@@ -763,7 +763,7 @@ int string levels 0x7f0a001b
 int string main_image 0x7f0a0017
 int string play_games 0x7f0a0018
 int string rules 0x7f0a001c
-int string rules_of_numbers_game 0x7f0a0020
+int string rules_numbers_game 0x7f0a0020
 int string sltw_sample_defaultText 0x7f0a001d
 int string status_bar_notification_info_overflow 0x7f0a0011
 int string submit 0x7f0a001e

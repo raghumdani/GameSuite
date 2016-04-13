@@ -31,7 +31,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:text="@string/rules"
+            android:text="@string/rules_numbers_game"
             android:textColor="#25505E" />
 
         <!-- target field -->

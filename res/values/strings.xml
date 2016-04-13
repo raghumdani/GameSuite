@@ -14,5 +14,5 @@
 	<string name="sltw_sample_defaultText"></string>
 	<string name="submit">Submit</string>
 	<string name="clear_button">Clear</string>
-	<string name="rules_of_numbers_game">Use +, -, * and / to get the answer.</string>
+	<string name="rules_numbers_game">Use +, -, * and / to get the answer.</string>
 </resources>

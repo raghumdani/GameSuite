@@ -2836,7 +2836,7 @@ containing a value of this type.
         public static final int main_image=0x7f0a0017;
         public static final int play_games=0x7f0a0018;
         public static final int rules=0x7f0a001c;
-        public static final int rules_of_numbers_game=0x7f0a0020;
+        public static final int rules_numbers_game=0x7f0a0020;
         /**  Added for the application 
          */
         public static final int sltw_sample_defaultText=0x7f0a001d;
