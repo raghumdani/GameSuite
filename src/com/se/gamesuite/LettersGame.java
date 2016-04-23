@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 import com.myscript.atk.maw.MathWidgetApi;
 import com.se.gamesuite.util.SimpleResourceHelper;
-import com.myscript.certificate.MyCertificate;
+import com.se.gamesuite.MyCertificate;
 import com.se.gamesuite.view.CustomEditText;
 
 import android.app.Activity;
@@ -31,6 +31,7 @@ MathWidgetApi.OnWritingListener {
 	public Button clearButton;
 	private String TAG = "LetterGame";
 	
+	// Myscript API
 	private MathWidgetApi mWidget;
 	private final String fileName = "20k.txt";
 

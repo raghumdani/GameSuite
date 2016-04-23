@@ -2,9 +2,10 @@ package com.se.gamesuite;
 
 import java.util.ArrayList;
 
+
 import com.myscript.atk.maw.MathWidgetApi;
 import com.se.gamesuite.util.SimpleResourceHelper;
-import com.myscript.certificate.MyCertificate;
+import com.se.gamesuite.MyCertificate;
 import com.se.gamesuite.view.CustomEditText;
 import com.se.gamesuite.FindEquation;
 
@@ -22,7 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class NumbersGame extends Activity implements 
-MathWidgetApi.OnWritingListener {
+MathWidgetApi.OnRecognitionListener {
 	public CustomEditText mEditText;
 	public Button submit;
 	public Button clearButton;
@@ -78,7 +79,7 @@ MathWidgetApi.OnWritingListener {
 			}
 		});
 
-		mWidget.setOnWritingListener(this);
+		mWidget.setOnRecognitionListener(this);
 		
 		if(clearButton != null) {
 			clearButton.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +103,8 @@ MathWidgetApi.OnWritingListener {
 							+ ". The correct answer is " + fe.getEquation(), v);
 				}
 			}
-
+			
+			//Ensures modularity
 			private void displayAlertDialogBoxCustom(String msg, View v) {
 			    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
 			    builder.setMessage(msg)
@@ -166,15 +168,16 @@ MathWidgetApi.OnWritingListener {
 	    mWidget.configure(this, resources, MyCertificate.getBytes(), MathWidgetApi.AdditionalGestures.DefaultGestures);
 	  }
 
+
 	@Override
-	public void onWritingBegin() {
-		Log.d(TAG, "onWritingBegin Executed.");
-		// TODO : Do something da
+	public void onRecognitionBegin() {
+		Log.d(TAG, "onRecoBegin Executed.");
+		// TODO : Do something da	
 	}
 
 	@Override
-	public void onWritingEnd() {
-		Log.d(TAG, "onWritingEnd Executed.");
+	public void onRecognitionEnd() {
+		Log.d(TAG, "onRecoEnd Executed.");
 		String s = mWidget.getResultAsText();
 		if(s.length() > 1) {
 			mEditText.append("" + s.charAt(s.length() - 1));

@@ -3,7 +3,12 @@
     package="com.se.gamesuite"
     android:versionCode="1"
     android:versionName="1.0" >
-	<uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+    android:targetPackage="com.se.gamesuite"
+    android:label="Game Suite" />
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="23" />
@@ -22,25 +27,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LevelSelector" >
+        <activity android:name=".LevelSelector" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-         <activity
-            android:name=".NumbersGame" >
+        <activity android:name=".NumbersGame" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LevelSelector" />
         </activity>
-        <activity
-            android:name=".LettersGame" >
+        <activity android:name=".LettersGame" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LevelSelector" />
         </activity>
-        
+
+        <uses-library android:name="android.test.runner" />
     </application>
 
 </manifest>

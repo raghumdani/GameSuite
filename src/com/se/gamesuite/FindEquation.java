@@ -22,6 +22,7 @@ public class FindEquation {
 	public final int MIN_VALUE = 3;
 	public final int MAX_VALUE = 1000;
 	public final int NUM_BIN_OP = 4;
+	public final int NOT_GOOD = (~0);
 	
 	public FindEquation() {
 		equation = "";
@@ -76,9 +77,68 @@ public class FindEquation {
 		return ans;
 	}
 	
+	// This function is used to check the validity of
+	// The input field
+	
+	private boolean isNotValid(char x) {
+		return (x < '0' || x > '9') && 
+				(x != '-' && x != '+' && x != '*' && x != '/' && x != ' ' && x != '\t' && x != '\n');
+	}
+	
 	// Check if the answer entered is correct or not
 	// The heart of equation checking
 	public boolean validateAnswer(String eq) {
+		
+		int res = calc(eq);
+		if(res == NOT_GOOD) return false;
+		if(res != this.answer) return false;
+		
+		Log.d(TAG, "Input String: " + eq);
+		String neq = "";
+		for(int i = 0; i < eq.length(); ++i) {
+			if(eq.charAt(i) < '0' || eq.charAt(i) > '9') {
+				if(eq.charAt(i) != '+' && eq.charAt(i) != '-' && eq.charAt(i) != '*' && eq.charAt(i) != '/') {
+					continue;
+				}
+				neq += eq.charAt(i);
+			} else {
+				neq += eq.charAt(i);
+			}
+		}
+		
+		String num = "";
+		ArrayList <Integer> arg = new ArrayList <Integer>();
+				
+		for(int i = 0; i < neq.length(); ++i) {
+			if(neq.charAt(i) <= '9' && neq.charAt(i) >= '0') {
+				num += neq.charAt(i);
+			} else {
+				arg.add(Integer.parseInt(num));
+				num = "";
+			}
+		}
+		if(num.length() != 0) {
+			arg.add(Integer.parseInt(num));
+		}
+		if(arg.size() != arguments.size() ) {
+			return false;
+		}
+		for(int i = 0; i < arg.size(); ++i) {
+			if(!arguments.contains(arg.get(i))) {
+				return false;
+			}
+		}
+		Log.d(TAG, "The evaluated answer is " + res + " whereas the answer of jury is " + this.answer); 
+		return true;
+	}
+	
+	//For testing purposes
+	public int calc(String eq) {
+		for(int i = 0; i < eq.length(); ++i) {
+			if(isNotValid(eq.charAt(i))) {
+				return NOT_GOOD;
+			}
+		}
 		Log.d(TAG, "Input String: " + eq);
 		String neq = "";
 		for(int i = 0; i < eq.length(); ++i) {
@@ -94,10 +154,14 @@ public class FindEquation {
 		int res = 0, args = 0;
 		char curOP = '[';
 		String num = "";
+		
 		for(int i = 0; i < neq.length(); ++i) {
 			if(neq.charAt(i) <= '9' && neq.charAt(i) >= '0') {
 				num += neq.charAt(i);
 			} else {
+				if(num.equals("")) {
+					return NOT_GOOD;
+				}
 				if(args == 0) {
 					res = Integer.parseInt(num);
 					num = "";
@@ -111,10 +175,13 @@ public class FindEquation {
 			}
 		}
 		if(num.length() != 0) {
-			res = evaluateAnswer(res, curOP, Integer.parseInt(num));
+			if(args == 0) {
+				res = Integer.parseInt(num);
+			} else {
+				res = evaluateAnswer(res, curOP, Integer.parseInt(num));
+			}
 		}
-		Log.d(TAG, "The evaluated answer is " + res + " whereas the answer of jury is " + this.answer); 
-		return res == this.answer;
+		return res;
 	}
 	
 	// Get the random number between lo and hi
